@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>git clone 网络问题</title>
+      <link href="/2025/01/07/git-clone-%E7%BD%91%E7%BB%9C%E9%97%AE%E9%A2%98/"/>
+      <url>/2025/01/07/git-clone-%E7%BD%91%E7%BB%9C%E9%97%AE%E9%A2%98/</url>
+      
+        <content type="html"><![CDATA[<p>为什么我的clash感觉不太好用，github下载&#x2F;上传总是终端，gpt也是经常卡断。本人疯</p><p>clone很大的项目的时候经常会出现中断的情况👇</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/deepseek-ai/DeepSeek-V3.git</span><br><span class="line">Cloning into <span class="string">&#x27;DeepSeek-V3&#x27;</span>...</span><br><span class="line">remote: Enumerating objects: 79, <span class="keyword">done</span>.</span><br><span class="line">remote: Counting objects: 100% (36/36), <span class="keyword">done</span>.</span><br><span class="line">remote: Compressing objects: 100% (26/26), <span class="keyword">done</span>.</span><br><span class="line">error: RPC failed; curl 16 Error <span class="keyword">in</span> the HTTP2 framing layer</span><br><span class="line">error: 263 bytes of body are still expected</span><br><span class="line">fetch-pack: unexpected disconnect <span class="keyword">while</span> reading sideband packet</span><br><span class="line">fatal: early EOF</span><br><span class="line">fatal: fetch-pack: invalid index-pack output</span><br></pre></td></tr></table></figure><p><strong>解决办法</strong>：首先进行浅层克隆，然后用其历史记录更新存储库。  </p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/deepseek-ai/DeepSeek-V3.git --depth 1</span><br><span class="line">$ <span class="built_in">cd</span> DeepSeek-V3</span><br><span class="line">$ git fetch --unshallow</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>命令行的艺术（搬运）</title>
       <link href="/2025/01/06/%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%9A%84%E8%89%BA%E6%9C%AF%EF%BC%88%E6%90%AC%E8%BF%90%EF%BC%89/"/>
       <url>/2025/01/06/%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%9A%84%E8%89%BA%E6%9C%AF%EF%BC%88%E6%90%AC%E8%BF%90%EF%BC%89/</url>
